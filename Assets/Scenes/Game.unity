@@ -242,6 +242,7 @@ Transform:
   - {fileID: 1883146182}
   - {fileID: 768241901}
   - {fileID: 804263406}
+  - {fileID: 328272864}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3807824
@@ -8616,6 +8617,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 223210495}
   m_Mesh: {fileID: 4300000, guid: 200b281f58f8b494993167ccc01236f8, type: 3}
+--- !u!23 &223839517 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300004, guid: b544816461f324e56a39767fdeb5b114, type: 3}
+  m_PrefabInstance: {fileID: 1162304611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &224942716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13033,6 +13039,60 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a57d08af938bfa4787133af350e4214, type: 3}
+--- !u!1 &328272863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 328272864}
+  - component: {fileID: 328272865}
+  m_Layer: 0
+  m_Name: DayNightController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &328272864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328272863}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2296481}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328272865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328272863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11ef37caa3ebf92498bd2e87da34c766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dayColorLight: {r: 0.9843137, g: 1, b: 0.8392157, a: 1}
+  nightColorLight: {r: 0.41960785, g: 0.41960785, b: 0.41960785, a: 1}
+  waterTiles:
+  - {fileID: 1467444117}
+  - {fileID: 223839517}
+  - {fileID: 1398417748}
+  - {fileID: 2133180254}
+  dayColorWater: {r: 0.12941177, g: 0.4862745, b: 0.5803922, a: 1}
+  nightColorWater: {r: 0.07450981, g: 0.23921569, b: 0.28627452, a: 1}
+  transitionDuration: 1
 --- !u!1001 &330012808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65592,6 +65652,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06fa4dbbd99090249b822e68385bfaba, type: 3}
+--- !u!23 &1398417748 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300002, guid: b544816461f324e56a39767fdeb5b114, type: 3}
+  m_PrefabInstance: {fileID: 1162304611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1399056933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -68001,6 +68066,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea86c91ee2f620145b2f03b05c2f5d8e, type: 3}
+--- !u!23 &1467444117 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300006, guid: b544816461f324e56a39767fdeb5b114, type: 3}
+  m_PrefabInstance: {fileID: 1162304611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1467896204
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98711,6 +98781,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2130516241}
   m_Mesh: {fileID: 4300000, guid: 8fe03f29fe6842b40b0ec27a17751f18, type: 3}
+--- !u!23 &2133180254 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: b544816461f324e56a39767fdeb5b114, type: 3}
+  m_PrefabInstance: {fileID: 1162304611}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2136735003
 PrefabInstance:
   m_ObjectHideFlags: 0
