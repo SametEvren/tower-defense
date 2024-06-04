@@ -1,11 +1,10 @@
 ﻿using Enemy_Scripts;
-using UnityEngine.Pool;
 
 namespace Utility
 {
-    public interface IObjectPoolManager<T> where T : class
+    public interface IObjectPoolManager<T>  
     {
-        public Enemy GetItemFromPool(ObjectPool<T> item);
+        public T GetItemFromPool(EnemyType enemyType);
         public void ReleaseItemToPool(T item);
     }
 }

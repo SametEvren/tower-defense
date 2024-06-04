@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Enemy_Scripts;
 using UnityEngine;
 using UnityEngine.Pool;
 using Utility;
+using Wave_Scripts;
 
 namespace Spawn
 {
@@ -27,6 +29,7 @@ namespace Spawn
         
         private const int SlotItemCapacity = 2000;
         
+        [Header("Wave Points")]
         [SerializeField] private List<WavePoint> wavePoints;
 
         private void Awake()
@@ -34,13 +37,6 @@ namespace Spawn
             SetPool();
             ServiceLocator.Add(this);
         }
-
-        // private void Start()
-        // {
-        //     var spawnedEnemy = GetItemFromPool();
-        //     var enemyMovement = spawnedEnemy.GetComponent<EnemyMovement>();
-        //     enemyMovement.SetMoveFeature(wavePoints[3]);
-        // }
 
         #region SetPool
 
@@ -70,48 +66,32 @@ namespace Spawn
 
         #endregion
 
-        public Enemy GetItemFromPool(ObjectPool<Enemy> enemyPool)
+        public Enemy GetItemFromPool(EnemyType enemyType)
         {
-            var enemy = enemyPool.Get();
-            return enemy;
+            switch (enemyType)
+            {
+                case EnemyType.AlbinoNightmare:
+                    var albinoEnemy = _albinoNightmareDragonPool.Get();
+                    return albinoEnemy;
+                case EnemyType.BlueUsurper:
+                    var blueEnemy = _blueUsurperDragonPool.Get();
+                    return blueEnemy;
+                case EnemyType.PurpleTerrorBringer:
+                    var purpleEnemy = _purpleTerrorBringerDragonPool.Get();
+                    return purpleEnemy;
+                case EnemyType.RedSoulEater:
+                    var redEnemy = _redSoulEaterDragonPool.Get();
+                    return redEnemy;
+                default:
+                    var enemy = _albinoNightmareDragonPool.Get();
+                    return enemy;
+            }
         }
+
 
         public void ReleaseItemToPool(Enemy enemy)
         {
             OnPutBackInPool(enemy);
-        }
-        
-        public void GenerateSpawn(EnemyType enemyType, int count, int wavePointId)
-        {
-            ObjectPool<Enemy> enemyPoolFromSpawn;
-            
-            switch (enemyType)
-            {
-                case EnemyType.AlbinoNightmare:
-                    enemyPoolFromSpawn = _albinoNightmareDragonPool;
-                    break;
-                case EnemyType.BlueUsurper:
-                    enemyPoolFromSpawn = _blueUsurperDragonPool;
-                    break;
-                case EnemyType.PurpleTerrorBringer:
-                    enemyPoolFromSpawn = _purpleTerrorBringerDragonPool;
-                    break;
-                case EnemyType.RedSoulEater:
-                    enemyPoolFromSpawn = _redSoulEaterDragonPool;
-                    break;
-                default:
-                    enemyPoolFromSpawn = _albinoNightmareDragonPool;
-                    break;
-            }
-
-            var spawnedEnemy = GetItemFromPool(enemyPoolFromSpawn);
-            SetEnemy(spawnedEnemy, wavePointId);
-        }
-
-        private void SetEnemy(Enemy enemy,int wavePointId)
-        {
-            var enemyMovement = enemy.GetComponent<EnemyMovement>();
-            enemyMovement.SetMoveFeature(wavePoints[wavePointId]);
         }
     }
 }

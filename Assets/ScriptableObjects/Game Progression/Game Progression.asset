@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 581086a951cc46ccb7db2726bd980991, type: 3}
+  m_Name: Game Progression
+  m_EditorClassIdentifier: 
+  waves:
+  - wavePointData:
+    - wavePointId: 0
+      enemySpawnData:
+      - enemyType: 0
+        spawnCount: 4
+  - wavePointData:
+    - wavePointId: 0
+      enemySpawnData:
+      - enemyType: 1
+        spawnCount: 7

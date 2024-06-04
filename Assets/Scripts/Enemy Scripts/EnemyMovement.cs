@@ -1,6 +1,6 @@
 ﻿using Dreamteck.Splines;
-using Spawn;
 using UnityEngine;
+using Wave_Scripts;
 
 namespace Enemy_Scripts
 {

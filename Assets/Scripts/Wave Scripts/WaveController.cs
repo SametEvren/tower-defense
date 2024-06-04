@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using Spawn;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Utility;
 
@@ -7,56 +6,32 @@ namespace Wave_Scripts
 {
     public class WaveController : MonoBehaviour
     {
-        public Wave wave;
-        public int currentWaveIndex;
-        public int currentSpawnIndex;
-        public List<WavePoint> wavePoints;
-        public List<WaveDatum> waveData;
+        [SerializeField] private List<WavePoint> wavePoints;
+        private readonly Dictionary<int, WavePoint> _wavePointDictionary = new();
+        public const float SpawnInterval = 3f;
+        private void Awake()
+        {
+            ServiceLocator.Add(this);
 
-        private float _spawnTimer = 0f;
-        private float _spawnInterval = 3f;
+            InitializeDictionary();
+        }
 
-        private SpawnController _spawnController;
+        private void InitializeDictionary()
+        {
+            foreach (var wavePoint in wavePoints)
+            {
+                if(!_wavePointDictionary.TryAdd(wavePoint.Id, wavePoint))
+                    Debug.LogError($"Can't add wave point to dictionary. The key is: {wavePoint.Id}");
+            }
+        }
         
-        private void Start()
+        public void InitiateWave(WaveData waveData)
         {
-            _spawnController = ServiceLocator.Get<SpawnController>();
-            waveData = new List<WaveDatum>(wave.waveData);
-        }
-
-        private void Update()
-        {
-            _spawnTimer += Time.deltaTime;
-
-            if (waveData[currentWaveIndex].enemySpawnData.Count <= currentSpawnIndex)
+            foreach (var wavePointData in waveData.wavePointData)
             {
-                IterateWave();
-                return;
+                var wavePoint = _wavePointDictionary[wavePointData.wavePointId];
+                wavePoint.ActivateWave(wavePointData.enemySpawnData);
             }
-            
-            if (_spawnTimer >= _spawnInterval)
-            {
-                SpawnEnemy();
-            }
-        }
-
-        private void IterateWave()
-        {
-            currentSpawnIndex = 0;
-            currentWaveIndex++;
-        }
-
-        private void SpawnEnemy()
-        {
-            _spawnTimer = 0;
-            
-            var spawnDatum = waveData[currentWaveIndex].enemySpawnData[currentSpawnIndex];
-            var enemyType = spawnDatum.enemyType;
-            var spawnCount = spawnDatum.spawnCount;
-            var wavePointId = spawnDatum.wavePointId;
-
-            _spawnController.GenerateSpawn(enemyType, spawnCount, wavePointId);
-            currentSpawnIndex++;
         }
     }
 }
