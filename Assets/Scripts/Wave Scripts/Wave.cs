@@ -16,6 +16,4 @@ namespace Wave_Scripts
     {
         public List<EnemySpawnDatum> enemySpawnData;
     }
-
-    
 }

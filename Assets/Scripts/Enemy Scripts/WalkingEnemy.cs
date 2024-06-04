@@ -7,7 +7,6 @@ namespace Enemy_Scripts
         private new void Awake()
         {
             base.Awake();
-            Debug.Log("aaa");
         }
     
         public override void Move()

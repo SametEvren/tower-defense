@@ -16,7 +16,7 @@ namespace UI
         private void Start()
         {
             _uiController = ServiceLocator.Get<UIController>();
-            transform.parent = _uiController.worldSpaceCanvas.transform;
+            transform.SetParent(_uiController.worldSpaceCanvas.transform);
         }
 
         private void LateUpdate()

@@ -2428,6 +2428,10 @@ PrefabInstance:
       value: Health Bar
       objectReference: {fileID: 0}
     - target: {fileID: 7774147331262868235, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 3499641770904544916}
+    - target: {fileID: 7774147331262868235, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
       propertyPath: offset.y
       value: 3
       objectReference: {fileID: 0}
