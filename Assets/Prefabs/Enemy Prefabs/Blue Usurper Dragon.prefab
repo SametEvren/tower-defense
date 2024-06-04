@@ -3177,6 +3177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467be531adf14d2c908b5095d3976672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyType: 1
   enemyStats: {fileID: 11400000, guid: 09515ed1e35ff03429278f46b60773c6, type: 2}
 --- !u!114 &7338078136700898001
 MonoBehaviour:
@@ -3216,6 +3217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191ea5810dc2473abbd1c21c6512702d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 4271590542565911693}
   healthBarFillImage: {fileID: 4756210617739540367}
 --- !u!1 &7464293794076937350
 GameObject:
@@ -4361,6 +4363,11 @@ PrefabInstance:
 --- !u!224 &1544776391949090722 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 156631949283995238, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
+  m_PrefabInstance: {fileID: 1683310641781428676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4271590542565911693 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3178396656224402761, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
   m_PrefabInstance: {fileID: 1683310641781428676}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4756210617739540367 stripped

@@ -1,5 +1,4 @@
-﻿using UnityEngine;
-
+﻿
 namespace Enemy_Scripts
 {
     public class WalkingEnemy : Enemy

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Enemy_Scripts;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -61,7 +60,6 @@ namespace Spawn
         private void OnPutBackInPool(Enemy obj)
         {
             obj.gameObject.SetActive(false);
-            obj.transform.SetParent(null);
         }
 
         #endregion
@@ -88,10 +86,23 @@ namespace Spawn
             }
         }
 
-
-        public void ReleaseItemToPool(Enemy enemy)
+        public void ReleaseItemToPool(EnemyType enemyType, Enemy enemy)
         {
-            OnPutBackInPool(enemy);
+            switch (enemyType)
+            {
+                case EnemyType.AlbinoNightmare:
+                    _albinoNightmareDragonPool.Release(enemy);
+                    break;
+                case EnemyType.BlueUsurper:
+                    _blueUsurperDragonPool.Release(enemy);
+                    break;
+                case EnemyType.PurpleTerrorBringer:
+                    _purpleTerrorBringerDragonPool.Release(enemy);
+                    break;
+                case EnemyType.RedSoulEater:
+                    _redSoulEaterDragonPool.Release(enemy);
+                    break;
+            }
         }
     }
 }

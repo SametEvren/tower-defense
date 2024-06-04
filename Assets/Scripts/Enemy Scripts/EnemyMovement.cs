@@ -7,13 +7,15 @@ namespace Enemy_Scripts
     public class EnemyMovement : MonoBehaviour
     {
         public float moveSpeed;
-        internal SplineFollower _splineFollower;
+        private SplineFollower _splineFollower;
 
-        private void Awake()
+        public void SetMoveSpeed(float speed)
         {
-            _splineFollower = GetComponent<SplineFollower>();
+            _splineFollower ??= GetComponent<SplineFollower>();
+            moveSpeed = speed;
+            _splineFollower.followSpeed = moveSpeed;
         }
-
+        
         public void SetMoveFeature(WavePoint wavePoint)
         {
             transform.position = wavePoint.transform.position;

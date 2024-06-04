@@ -16,20 +16,8 @@ namespace Gameplay_Scripts
         [SerializeField] private Color nightColorWater;
 
         [SerializeField] private float transitionDuration = 1.0f;
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                MakeItDay();
-            }
-            else if (Input.GetKeyDown(KeyCode.N))
-            {
-                MakeItNight();
-            }
-        }
-
-        void MakeItDay()
+        
+        internal void MakeItDay()
         {
             directionalLight.DOColor(dayColorLight, transitionDuration);
 
@@ -39,7 +27,7 @@ namespace Gameplay_Scripts
             }
         }
 
-        void MakeItNight()
+        internal void MakeItNight()
         {
             directionalLight.DOColor(nightColorLight, transitionDuration);
 

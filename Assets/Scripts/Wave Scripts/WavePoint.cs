@@ -16,6 +16,9 @@ namespace Wave_Scripts
         public SplineComputer splineComputer;
         
         private SpawnController SpawnController => ServiceLocator.Get<SpawnController>();
+
+        private WaveController WaveController => ServiceLocator.Get<WaveController>();
+        
      
         public void ActivateWave(List<EnemySpawnData> enemySpawnData)
         {
@@ -37,6 +40,8 @@ namespace Wave_Scripts
         private void SpawnEnemy(EnemyType enemyType)
         {
             var enemy = SpawnController.GetItemFromPool(enemyType);
+            WaveController.HandleEnemySpawned(enemy);
+            
             var enemyMovement = enemy.GetComponent<EnemyMovement>();
             enemyMovement.SetMoveFeature(this);
         }

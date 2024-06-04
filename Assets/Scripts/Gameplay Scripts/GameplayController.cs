@@ -10,16 +10,22 @@ namespace Gameplay_Scripts
         private int currentWave;
         
         private WaveController WaveController => ServiceLocator.Get<WaveController>();
-        private void Update()
+
+        [SerializeField] private DayNightController dayNightController;
+
+        private void Start()
         {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                SpawnNextWave();
-            }
+            WaveController.OnWaveFinished += HandleWaveFinished;
         }
 
-        private void SpawnNextWave()
+        private void HandleWaveFinished()
         {
+            dayNightController.MakeItDay();
+        }
+
+        public void SpawnNextWave()
+        {
+            dayNightController.MakeItNight();
             var waveData = gameProgression.GetWave(currentWave);
             WaveController.InitiateWave(waveData);
             currentWave++;

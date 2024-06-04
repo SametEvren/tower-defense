@@ -1,5 +1,7 @@
 ﻿using System;
+using Spawn;
 using UnityEngine;
+using Utility;
 
 namespace Enemy_Scripts
 {
@@ -15,6 +17,12 @@ namespace Enemy_Scripts
             set
             {
                 _health = value;
+                if (_health <= 0)
+                {
+                    OnEnemyDeath?.Invoke(this);
+                    SpawnController.ReleaseItemToPool(enemyType, this);
+                }
+                
                 EnemyHealthChanged?.Invoke(_health);
             }
         }
@@ -34,12 +42,18 @@ namespace Enemy_Scripts
 
         private EnemyMovement _enemyMovement;
         private EnemyAttack _enemyAttack;
-        
+        private EnemyUI _enemyUI;
+
+        [SerializeField] private EnemyType enemyType;
         [SerializeField] private EnemyStats enemyStats;
+
+        private SpawnController SpawnController => ServiceLocator.Get<SpawnController>();
 
         #region Actions
 
-        public Action<float> EnemyHealthChanged;
+        public event Action OnEnemySpawned; 
+        public event Action<float> EnemyHealthChanged;
+        public event Action<Enemy> OnEnemyDeath;
 
         #endregion
 
@@ -49,8 +63,9 @@ namespace Enemy_Scripts
             _enemyAttack = GetComponent<EnemyAttack>();
         }
 
-        protected void Start()
+        protected void OnEnable()
         {
+            OnEnemySpawned?.Invoke();
             GetProperties();
             SetProperties();
         }
@@ -70,8 +85,7 @@ namespace Enemy_Scripts
 
         private void SetProperties()
         {
-            _enemyMovement.moveSpeed = Speed;
-            _enemyMovement._splineFollower.followSpeed = _enemyMovement.moveSpeed;
+            _enemyMovement.SetMoveSpeed(_speed);
             _enemyAttack.damageAmount = Damage;
         }
 
