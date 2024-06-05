@@ -9,7 +9,7 @@ namespace Enemy_Scripts
         public float moveSpeed;
         private SplineFollower _splineFollower;
 
-        public bool ReachedTheEnd => _splineFollower.GetPercent() > 99.99f;
+        public bool ReachedTheEnd => _splineFollower.GetPercent() > 0.99f;
 
         public void SetMoveSpeed(float speed)
         {

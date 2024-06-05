@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/External Assets/Tower Defense Level Kit/DemoScenes/Map01.unity
-    guid: 8c1c917faaf03ce4488cadad91ca8205
+    path: Assets/Scenes/Game.unity
+    guid: 2250329581b756b479bc2925c2d6f581
   m_configObjects: {}

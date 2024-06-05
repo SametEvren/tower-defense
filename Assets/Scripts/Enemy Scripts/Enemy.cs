@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using Gameplay_Scripts;
+using Player_Scripts;
 using Spawn;
 using UnityEngine;
 using Utility;
@@ -22,6 +23,7 @@ namespace Enemy_Scripts
                 {
                     OnEnemyDeath?.Invoke(this);
                     SpawnController.ReleaseItemToPool(enemyType, this);
+                    PlayerStatController.IncreaseGold(50);
                 }
                 
                 EnemyHealthChanged?.Invoke(_health);
@@ -50,6 +52,7 @@ namespace Enemy_Scripts
 
         private SpawnController SpawnController => ServiceLocator.Get<SpawnController>();
         private GameplayController GameplayController => ServiceLocator.Get<GameplayController>();
+        private PlayerStatController PlayerStatController => ServiceLocator.Get<PlayerStatController>();
 
         #region Actions
 
@@ -84,6 +87,7 @@ namespace Enemy_Scripts
             if (_enemyMovement.ReachedTheEnd)
             {
                 GameplayController.DecreaseHealth(1);
+                OnEnemyDeath?.Invoke(this);
                 SpawnController.ReleaseItemToPool(enemyType,this);
             }
         }

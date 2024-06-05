@@ -33,6 +33,11 @@ namespace Tower_Scripts
             Ray camRay = playerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(camRay, out RaycastHit hitInfo, 2000f, towerLayer))
             {
+                if (hitInfo.transform.GetComponentInChildren<ITower>() != null)
+                {
+                    return;
+                }
+                
                 _currentPlacingTower.transform.position = hitInfo.transform.position + Vector3.up * WeaponPlacementOffset;
                 _currentPlacingTower.transform.localRotation = Quaternion.Euler(WeaponPlacementRotation);
                 _currentPlacingTower.transform.parent = hitInfo.transform;
