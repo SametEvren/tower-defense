@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 22
   speed: 1.4
-  health: 125
+  health: 1250
   levelMultiplier: 1.13
