@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 2 - Crystal
   m_EditorClassIdentifier: 
-  towerType: 0
+  towerType: 2
   towerStages:
-  - {fileID: 142762, guid: 0c1e4500d146d8945b7292106fc24cf5, type: 3}
-  - {fileID: 179438, guid: acc59de7bc5929140b077471cecd758f, type: 3}
-  - {fileID: 180490, guid: 830335a0271cb1f4e917235d09b51e8d, type: 3}
+  - {fileID: 4364568968428091977, guid: 0c1e4500d146d8945b7292106fc24cf5, type: 3}
+  - {fileID: 1644269078220851386, guid: acc59de7bc5929140b077471cecd758f, type: 3}
+  - {fileID: -244547329585547965, guid: 830335a0271cb1f4e917235d09b51e8d, type: 3}
   projectile: {fileID: 0}
   sprite: {fileID: 21300000, guid: 30abec91156cf1940995d608be492d4c, type: 3}
   description: Slows down enemies within area of effect and does damage over time.
@@ -26,9 +26,9 @@ MonoBehaviour:
   - 35
   - 40
   damageUpgrades:
-  - 5
-  - 7
-  - 10
+  - 1
+  - 2
+  - 3
   fireRateUpgrades:
   - 0.5
   - 0.5

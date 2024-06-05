@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using Gameplay_Scripts;
 using Spawn;
 using UnityEngine;
 using Utility;
@@ -8,8 +10,6 @@ namespace Enemy_Scripts
     public abstract class Enemy : MonoBehaviour
     {
         private float _health;
-        private float _damage;
-        private float _speed;
 
         public float Health
         {
@@ -26,23 +26,23 @@ namespace Enemy_Scripts
                 EnemyHealthChanged?.Invoke(_health);
             }
         }
-        public float Damage
-        {
-            get => _damage;
-            set => _damage = value;
-        }
+        public float Damage => (enemyStats.damage) * ProgressionBuff;
 
-        public float Speed
-        {
-            get => _speed;
-            set => _speed = value;
-        }
+        public float Speed => (enemyStats.speed * FrostDebuff * ShockDebuff) * ProgressionBuff;
+
+        //Virtual in case of debuff resistant enemies (?)
+        protected virtual float FrostDebuff => statusEffects.ContainsKey(StatusEffect.Frost) ? 0.5f : 1f;
+        protected virtual float ShockDebuff => statusEffects.ContainsKey(StatusEffect.Shock) ? 0f : 1f;
+        protected float ProgressionBuff => 1f;
+        //TODO: ServiceLocator.Get<GameplayController>().GetProgressionMultiplier;
 
         public float StartHealth { get; private set; }
 
         private EnemyMovement _enemyMovement;
         private EnemyAttack _enemyAttack;
         private EnemyUI _enemyUI;
+
+        private Dictionary<StatusEffect, float> statusEffects = new();
 
         [SerializeField] private EnemyType enemyType;
         [SerializeField] private EnemyStats enemyStats;
@@ -68,24 +68,55 @@ namespace Enemy_Scripts
             OnEnemySpawned?.Invoke();
             GetProperties();
             SetProperties();
+            ResetMovement();
         }
 
         private void Update()
         {
-            if(Input.GetKeyDown(KeyCode.A))
-                TakeDamage(10f);
+            ReduceStatusEffectTimers(Time.deltaTime);
+        }
+
+        private void ReduceStatusEffectTimers(float timePassed)
+        {
+            var statusesToRemove = new List<StatusEffect>();
+            var statusEffectsKeys = new List<StatusEffect>(statusEffects.Keys);
+
+            foreach (var effect in statusEffectsKeys)
+            {
+                statusEffects[effect] -= timePassed;
+                if (statusEffects[effect] <= 0)
+                {
+                    statusesToRemove.Add(effect);
+                }
+            }
+
+            foreach (var effect in statusesToRemove)
+            {
+                RemoveEffect(effect);
+            }
+        }
+
+        private void RemoveEffect(StatusEffect effect)
+        {
+            if (!statusEffects.ContainsKey(effect)) return;
+            
+            statusEffects.Remove(effect);
+            SetProperties();
         }
 
         private void GetProperties()
         {
-            StartHealth = Health = enemyStats.health; //TODO: Multiply with level multiplier
-            Damage = enemyStats.damage; //TODO: Multiply with level multiplier
-            Speed = enemyStats.speed; //TODO: Multiply with level multiplier
+            StartHealth = Health = enemyStats.health * ProgressionBuff;
         }
 
+        private void ResetMovement()
+        {
+            _enemyMovement.ResetMovement();
+        }
+        
         private void SetProperties()
         {
-            _enemyMovement.SetMoveSpeed(_speed);
+            _enemyMovement.SetMoveSpeed(Speed);
             _enemyAttack.damageAmount = Damage;
         }
 
@@ -96,5 +127,13 @@ namespace Enemy_Scripts
 
         public abstract void Move();
         public abstract void Attack();
+
+        public void AddStatus(StatusEffect effect, float duration)
+        {
+            if (statusEffects.ContainsKey(effect))
+                statusEffects[effect] += duration;
+            else
+                statusEffects.Add(effect, duration);
+        }
     }
 }

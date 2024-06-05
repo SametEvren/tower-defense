@@ -21,5 +21,11 @@ namespace Enemy_Scripts
             transform.position = wavePoint.transform.position;
             _splineFollower.spline = wavePoint.splineComputer;
         }
+
+        public void ResetMovement()
+        {
+            _splineFollower ??= GetComponent<SplineFollower>();
+            _splineFollower.SetPercent(0.0);
+        }
     }
 }

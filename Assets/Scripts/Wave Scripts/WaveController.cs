@@ -12,7 +12,7 @@ namespace Wave_Scripts
         public List<Enemy> enemiesInGame;
         
         private readonly Dictionary<int, WavePoint> _wavePointDictionary = new();
-        public const float SpawnInterval = 3f;
+        public const float SpawnInterval = 3.5f;
 
         public event Action OnWaveFinished;
 

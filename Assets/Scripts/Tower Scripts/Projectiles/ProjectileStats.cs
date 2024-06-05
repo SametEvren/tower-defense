@@ -23,12 +23,14 @@ namespace Tower_Scripts.Projectiles
         public ProjectileStats projectileStats;
         public Vector3 target;
         public float arcHeight;
+        public int chainLength;
 
-        public ProjectileInformation(ProjectileStats stats, Vector3 targetPosition, float arcHeight)
+        public ProjectileInformation(ProjectileStats stats, Vector3 targetPosition, float arcHeight, int chainLength = 0)
         {
             projectileStats = stats;
             target = targetPosition;
             this.arcHeight = arcHeight;
+            this.chainLength = chainLength;
         }
     }
 }

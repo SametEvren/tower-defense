@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 6 - Tesla
   m_EditorClassIdentifier: 
-  towerType: 0
+  towerType: 6
   towerStages:
-  - {fileID: 121782, guid: 5bbc8090c5d0723478efb25bd420c3f6, type: 3}
-  - {fileID: 138962, guid: b57783e652f85f941a4c856ef48dd9b3, type: 3}
-  - {fileID: 194652, guid: 6476ab1a0a1190b4ebc71d6702a48070, type: 3}
-  projectile: {fileID: 0}
+  - {fileID: -1803380830102212260, guid: 5bbc8090c5d0723478efb25bd420c3f6, type: 3}
+  - {fileID: -5287193158237215395, guid: b57783e652f85f941a4c856ef48dd9b3, type: 3}
+  - {fileID: -2210771793840139875, guid: 6476ab1a0a1190b4ebc71d6702a48070, type: 3}
+  projectile: {fileID: 511891407464515056, guid: df00eb3268e20ba4db23c3628a4c186a, type: 3}
   sprite: {fileID: 21300000, guid: cc6be034a59936d4ba51053549ecd643, type: 3}
   description: Does chain lightning attacks, better than Edison.
-  projectileSpeed: 0
+  projectileSpeed: 100
   rangeUpgrades:
-  - 20
-  - 30
+  - 40
+  - 40
   - 40
   damageUpgrades:
   - 20
@@ -33,6 +33,9 @@ MonoBehaviour:
   - 1
   - 0.75
   - 0.5
-  areaOfEffect: []
+  areaOfEffect:
+  - 30
+  - 30
+  - 30
   baseCost: 175
   upgradeCosts: 96000000c8000000
