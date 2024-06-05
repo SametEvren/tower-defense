@@ -19,7 +19,7 @@ MonoBehaviour:
       - enemyType: 0
         spawnCount: 4
   - wavePointData:
-    - wavePointId: 0
+    - wavePointId: 1
       enemySpawnData:
       - enemyType: 0
         spawnCount: 7
@@ -28,28 +28,28 @@ MonoBehaviour:
       enemySpawnData:
       - enemyType: 2
         spawnCount: 7
-    - wavePointId: 2
+    - wavePointId: 3
       enemySpawnData:
       - enemyType: 3
         spawnCount: 9
-    - wavePointId: 2
+    - wavePointId: 4
       enemySpawnData:
       - enemyType: 1
         spawnCount: 9
   - wavePointData:
-    - wavePointId: 2
+    - wavePointId: 4
       enemySpawnData:
       - enemyType: 2
         spawnCount: 7
       - enemyType: 0
         spawnCount: 7
-    - wavePointId: 0
+    - wavePointId: 3
       enemySpawnData:
       - enemyType: 3
         spawnCount: 9
       - enemyType: 1
         spawnCount: 2
-    - wavePointId: 1
+    - wavePointId: 2
       enemySpawnData:
       - enemyType: 1
         spawnCount: 6
