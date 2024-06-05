@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using DG.Tweening;
 using Gameplay_Scripts;
 using Spawn;
 using UnityEngine;
@@ -48,6 +49,7 @@ namespace Enemy_Scripts
         [SerializeField] private EnemyStats enemyStats;
 
         private SpawnController SpawnController => ServiceLocator.Get<SpawnController>();
+        private GameplayController GameplayController => ServiceLocator.Get<GameplayController>();
 
         #region Actions
 
@@ -74,6 +76,16 @@ namespace Enemy_Scripts
         private void Update()
         {
             ReduceStatusEffectTimers(Time.deltaTime);
+            CheckProgress();
+        }
+
+        private void CheckProgress()
+        {
+            if (_enemyMovement.ReachedTheEnd)
+            {
+                GameplayController.DecreaseHealth(1);
+                SpawnController.ReleaseItemToPool(enemyType,this);
+            }
         }
 
         private void ReduceStatusEffectTimers(float timePassed)

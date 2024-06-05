@@ -1,5 +1,4 @@
-﻿using System;
-using Player_Scripts;
+﻿using Player_Scripts;
 using TMPro;
 using UnityEngine;
 using Utility;
@@ -14,6 +13,7 @@ namespace UI
 
         private void Start()
         {
+            moneyText.text = PlayerStatController.CurrentGold.ToString();
             PlayerStatController.OnGoldChanged += UpdateGoldCount;
         }
 

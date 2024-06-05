@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Gameplay_Scripts;
 using UnityEngine;
 using Utility;
@@ -8,6 +9,8 @@ namespace Player_Scripts
     public class PlayerStatController : MonoBehaviour
     {
         [SerializeField] private PlayerStats playerStats;
+
+        public int CurrentGold => playerStats.gold;
         public event Action<int> OnGoldChanged;
 
         public int StartingHealth => playerStats.startingHealth;
@@ -17,6 +20,12 @@ namespace Player_Scripts
         private void Awake()
         {
             ServiceLocator.Add(this);
+        }
+
+        private IEnumerator Start()
+        {
+            yield return new WaitForSeconds(0.1f);
+            OnGoldChanged?.Invoke(playerStats.gold);
         }
 
         public bool CanAfford(int amount)

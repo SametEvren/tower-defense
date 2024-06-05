@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Player_Scripts;
 using UnityEngine;
 using Utility;
@@ -11,6 +13,7 @@ namespace Gameplay_Scripts
         [SerializeField] private GameProgression gameProgression;
         private int _currentWave;
         private int _health;
+        public int CurretHealth => _health;
         private WaveController WaveController => ServiceLocator.Get<WaveController>();
         private PlayerStatController PlayerStatController => ServiceLocator.Get<PlayerStatController>();
 
@@ -32,11 +35,26 @@ namespace Gameplay_Scripts
             WaveController.OnWaveFinished += HandleWaveFinished;
         }
 
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                DecreaseHealth(1);
+            }
+        }
+
         public void StartTheGame()
         {
+            StartCoroutine(StartEnum());
+        }
+
+        private IEnumerator StartEnum()
+        {
+            yield return new WaitForSeconds(0.1f);
             gameState = GameState.Running;
             _health = PlayerStatController.StartingHealth;
             OnGameStarted?.Invoke();
+            OnHealthChanged?.Invoke(_health);
         }
         
         private void HandleWaveFinished()

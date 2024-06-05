@@ -1,5 +1,4 @@
 ﻿using Gameplay_Scripts;
-using Player_Scripts;
 using TMPro;
 using UnityEngine;
 using Utility;
@@ -14,6 +13,7 @@ namespace UI
 
         private void Start()
         {
+            text.text = GameplayController.CurretHealth.ToString();
             GameplayController.OnHealthChanged += UpdateGoldCount;
         }
 
