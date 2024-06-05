@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3334522}
   - component: {fileID: 2361832}
   - component: {fileID: 5685060339894318574}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon_L3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerConfig: {fileID: 11400000, guid: 9e6e038c31f20ee4cb54bef37107372e, type: 2}
-  projectilePrefab: {fileID: -1514011058202656236, guid: d7d4291b9926f1e42bf6c92f2f5a3048, type: 3}
   projectileSpawnPosition: {fileID: 4231175556912635459}
 --- !u!1 &141346
 GameObject:

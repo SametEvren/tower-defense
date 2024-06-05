@@ -25,7 +25,7 @@ namespace UI
 
         private void Start()
         {
-            PlayerStatController.onGoldChanged += HandleGoldChanged;
+            PlayerStatController.OnGoldChanged += HandleGoldChanged;
         }
 
         private void HandleGoldChanged(int gold)

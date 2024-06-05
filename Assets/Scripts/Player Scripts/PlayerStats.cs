@@ -11,5 +11,6 @@ namespace Player_Scripts
         public List<int> levelExperienceRequirements;
         public int gold;
         public int castleLevel;
+        public int startingHealth;
     }
 }

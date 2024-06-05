@@ -1,4 +1,5 @@
 ﻿using System;
+using Gameplay_Scripts;
 using UnityEngine;
 using Utility;
 
@@ -7,7 +8,11 @@ namespace Player_Scripts
     public class PlayerStatController : MonoBehaviour
     {
         [SerializeField] private PlayerStats playerStats;
-        public event Action<int> onGoldChanged;
+        public event Action<int> OnGoldChanged;
+
+        public int StartingHealth => playerStats.startingHealth;
+        private GameplayController GameplayController => ServiceLocator.Get<GameplayController>();
+        
 
         private void Awake()
         {
@@ -22,13 +27,13 @@ namespace Player_Scripts
         public void IncreaseGold(int amount)
         {
             playerStats.gold += amount;
-            onGoldChanged?.Invoke(playerStats.gold);
+            OnGoldChanged?.Invoke(playerStats.gold);
         }
 
         public void DecreaseGold(int amount)
         {
             playerStats.gold -= amount;
-            onGoldChanged?.Invoke(playerStats.gold);
+            OnGoldChanged?.Invoke(playerStats.gold);
         }
         
     }

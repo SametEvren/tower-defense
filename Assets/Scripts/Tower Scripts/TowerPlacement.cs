@@ -11,8 +11,8 @@ namespace Tower_Scripts
         [SerializeField] private LayerMask towerLayer; 
         private ITower _currentPlacingTower;
         private TowerConfig _currentSelectedConfig;
-        private float _weaponPlacementOffset = 3.3f;
-        private Vector3 _weaponPlacementRotation = new (0, 0, 0);
+        public const float WeaponPlacementOffset = 3.3f;
+        public static Vector3 WeaponPlacementRotation = new (0, 0, 0);
 
         private PlayerStatController PlayerStatsController => ServiceLocator.Get<PlayerStatController>();
         private void Awake()
@@ -33,8 +33,8 @@ namespace Tower_Scripts
             Ray camRay = playerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(camRay, out RaycastHit hitInfo, 2000f, towerLayer))
             {
-                _currentPlacingTower.transform.position = hitInfo.transform.position + Vector3.up * _weaponPlacementOffset;
-                _currentPlacingTower.transform.localRotation = Quaternion.Euler(_weaponPlacementRotation);
+                _currentPlacingTower.transform.position = hitInfo.transform.position + Vector3.up * WeaponPlacementOffset;
+                _currentPlacingTower.transform.localRotation = Quaternion.Euler(WeaponPlacementRotation);
                 _currentPlacingTower.transform.parent = hitInfo.transform;
             }
 
