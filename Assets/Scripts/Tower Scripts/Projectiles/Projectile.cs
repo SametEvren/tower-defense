@@ -17,9 +17,9 @@ namespace Tower_Scripts.Projectiles
         {
             if (!other.CompareTag("Enemy") && !other.CompareTag("Ground")) return;
 
-            HandleTargetHit();
+            HandleTargetHit(other);
         }
 
-        protected abstract void HandleTargetHit();
+        protected abstract void HandleTargetHit(Collider hitCollider);
     }
 }

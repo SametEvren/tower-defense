@@ -54,7 +54,6 @@ namespace Tower_Scripts
 
         public void SetTowerToPlace(TowerConfig towerConfig)
         {
-            var towerStages = towerConfig.towerStages;
             var tower = Instantiate(towerConfig.towerStages[0], Vector3.zero, Quaternion.identity);
             _currentPlacingTowerInterface = tower;
             _currentSelectedConfig = towerConfig;

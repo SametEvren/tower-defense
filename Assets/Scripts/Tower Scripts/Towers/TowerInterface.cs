@@ -19,8 +19,7 @@ namespace Tower_Scripts.Towers
         private bool _isActive;
         private float _remainingCooldown;
         protected Enemy EnemyTarget;
-
-        [SerializeField] protected Projectile projectilePrefab;
+        
         [SerializeField] protected Transform projectileSpawnPosition;
         
         private void Update()

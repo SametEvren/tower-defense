@@ -34,8 +34,8 @@ MonoBehaviour:
   - 1
   - 1
   areaOfEffect:
-  - 0
-  - 0
-  - 0
+  - 10
+  - 15
+  - 20
   baseCost: 150
   upgradeCosts: 6400000096000000

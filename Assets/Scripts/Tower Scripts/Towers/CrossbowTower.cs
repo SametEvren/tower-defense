@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Tower_Scripts.Towers
 {
-    public class CannonTower : TowerBase
+    public class CrossbowTower : TowerBase
     {
         protected override void ChooseTarget()
         {
@@ -35,7 +35,7 @@ namespace Tower_Scripts.Towers
                 return;
 
             LookAtTarget();
-            var projectile = Instantiate(towerConfig.projectile, projectileSpawnPosition.position, Quaternion.identity) as CannonBall;
+            var projectile = Instantiate(towerConfig.projectile, projectileSpawnPosition.position, Quaternion.identity) as Bolt;
             //TODO: Pool stuff
 
             projectile.InitializeProjectile(

@@ -62338,7 +62338,7 @@ Transform:
   m_GameObject: {fileID: 1308248833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.92387956, z: 0.38268343, w: 0}
-  m_LocalPosition: {x: 0, y: 50, z: 45}
+  m_LocalPosition: {x: 0, y: 50, z: 100}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67500,6 +67500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1426623236}
   - component: {fileID: 1426623235}
+  - component: {fileID: 1426623237}
   m_Layer: 0
   m_Name: Water4AdvancedReflectionSceneCamera
   m_TagString: Untagged
@@ -67573,6 +67574,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 765387005}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!45 &1426623237
+Skybox:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426623234}
+  m_Enabled: 1
+  m_CustomSkybox: {fileID: 0}
 --- !u!4 &1426743818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 489522, guid: 9d770d8a7d608db409df9371fce7244b, type: 3}
@@ -67716,7 +67726,11 @@ PrefabInstance:
     - target: {fileID: 5064171961180595663, guid: b154c7993cb49b54798c9219e4ee25f4, type: 3}
       propertyPath: towerConfig
       value: 
-      objectReference: {fileID: 11400000, guid: 9e6e038c31f20ee4cb54bef37107372e, type: 2}
+      objectReference: {fileID: 11400000, guid: 573bbe2ded522844eb59a47f87f7d5bc, type: 2}
+    - target: {fileID: 6304998714962992090, guid: b154c7993cb49b54798c9219e4ee25f4, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3183c6bf63a51b344895a86b332b8396, type: 3}
     - target: {fileID: 6772834633555460184, guid: b154c7993cb49b54798c9219e4ee25f4, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

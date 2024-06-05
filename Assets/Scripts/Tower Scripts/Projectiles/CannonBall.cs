@@ -15,7 +15,7 @@ namespace Tower_Scripts.Projectiles
             MoveTowardsTarget();
         }
         
-        protected override void HandleTargetHit()
+        protected override void HandleTargetHit(Collider _)
         {
             var affectedEnemies = GetAffectedEnemies();
             PlayExplosionFX();
