@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 0
   towerStages:
-  - {fileID: 187600, guid: 532ed7a288029a14ea9798d97346ab84, type: 3}
-  - {fileID: 162330, guid: 87d0679b5609b0f43bffc581389350dc, type: 3}
-  - {fileID: 184606, guid: c31517a399bd14e479b90fcd9a3e26eb, type: 3}
-  projectile: {fileID: 0}
+  - {fileID: 2308679267582417074, guid: 532ed7a288029a14ea9798d97346ab84, type: 3}
+  - {fileID: 8382305962381331294, guid: 87d0679b5609b0f43bffc581389350dc, type: 3}
+  - {fileID: -7700892882272565952, guid: c31517a399bd14e479b90fcd9a3e26eb, type: 3}
+  projectile: {fileID: -1514011058202656236, guid: d7d4291b9926f1e42bf6c92f2f5a3048, type: 3}
   sprite: {fileID: 21300000, guid: 6938e1cb0213c4b40a349aca9d54d30a, type: 3}
   description: Fires heavy shells that do area damage to land enemies. Very strong
     but very slow.
-  projectileSpeed: 0
+  projectileSpeed: 10
   rangeUpgrades:
   - 100
   - 110
@@ -34,6 +34,9 @@ MonoBehaviour:
   - 5
   - 4.7
   - 4.5
-  areaOfEffect: []
+  areaOfEffect:
+  - 20
+  - 25
+  - 35
   baseCost: 200
   upgradeCosts: c8000000fa000000

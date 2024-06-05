@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Utility;
 using Wave_Scripts;
 
@@ -13,11 +14,25 @@ namespace Gameplay_Scripts
 
         [SerializeField] private DayNightController dayNightController;
 
+        public GameState gameState;
+        public event Action OnGameStarted;
+
+        private void Awake()
+        {
+            ServiceLocator.Add(this);
+        }
+
         private void Start()
         {
             WaveController.OnWaveFinished += HandleWaveFinished;
         }
 
+        public void StartTheGame()
+        {
+            gameState = GameState.Running;
+            OnGameStarted?.Invoke();
+        }
+        
         private void HandleWaveFinished()
         {
             dayNightController.MakeItDay();
@@ -29,6 +44,13 @@ namespace Gameplay_Scripts
             var waveData = gameProgression.GetWave(currentWave);
             WaveController.InitiateWave(waveData);
             currentWave++;
+        }
+        
+        public enum GameState
+        {
+            StartMenu,
+            Running,
+            Paused
         }
     }
 }
