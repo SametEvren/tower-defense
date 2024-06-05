@@ -17,14 +17,14 @@ MonoBehaviour:
   - {fileID: 5582335617239235588, guid: 02e86fbd8e914f942bb37f0715d5c842, type: 3}
   - {fileID: 3904808582451302176, guid: de012b773303bb545a3f35a1012c00af, type: 3}
   - {fileID: 6163551714344970816, guid: b9de166392b6a6243a66729e35931ffa, type: 3}
-  projectile: {fileID: -1514011058202656236, guid: d7d4291b9926f1e42bf6c92f2f5a3048, type: 3}
+  projectile: {fileID: 1224036508627665940, guid: 728c094c054ccd94a98cdafae56bd56f, type: 3}
   sprite: {fileID: 21300000, guid: 3183c6bf63a51b344895a86b332b8396, type: 3}
   description: Strong against single enemies.
   projectileSpeed: 20
   rangeUpgrades:
-  - 20
-  - 20
-  - 20
+  - 40
+  - 40
+  - 40
   damageUpgrades:
   - 50
   - 55

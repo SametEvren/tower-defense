@@ -8,7 +8,7 @@ namespace Tower_Scripts
     public class TowerConfig : ScriptableObject
     {
         public TowerType towerType;
-        public TowerInterface[] towerStages;
+        public ITower[] towerStages;
         public Projectile projectile;
         public Sprite sprite;
         public string description;
@@ -20,7 +20,7 @@ namespace Tower_Scripts
         public int baseCost;
         public int[] upgradeCosts;
 
-        public T GetTowerPrefab<T>(int level) where T : TowerInterface
+        public T GetTowerPrefab<T>(int level) where T : ITower
         {
             return towerStages[level] as T;
         }

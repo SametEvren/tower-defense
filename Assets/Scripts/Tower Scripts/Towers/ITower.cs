@@ -4,10 +4,10 @@ using UnityEngine;
 
 namespace Tower_Scripts.Towers
 {
-    public abstract class TowerInterface : MonoBehaviour
+    public abstract class ITower : MonoBehaviour
     {
         [SerializeField] protected TowerConfig towerConfig;
-        public TowerModifiers TowerModifiers = new TowerModifiers() { damageModifier = 1, fireRateModifier = 1, rangeModifier = 1 };
+        public TowerModifiers TowerModifiers = new() { damageModifier = 1, fireRateModifier = 1, rangeModifier = 1 };
         public int Level { get; private set; }
 
         public float Speed => towerConfig.projectileSpeed;

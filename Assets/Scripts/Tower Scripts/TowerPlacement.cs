@@ -9,7 +9,7 @@ namespace Tower_Scripts
     {
         [SerializeField] private Camera playerCamera;
         [SerializeField] private LayerMask towerLayer; 
-        private TowerInterface _currentPlacingTowerInterface;
+        private ITower _currentPlacingTower;
         private TowerConfig _currentSelectedConfig;
         private float _weaponPlacementOffset = 3.3f;
         private Vector3 _weaponPlacementRotation = new (0, 0, 0);
@@ -22,7 +22,7 @@ namespace Tower_Scripts
 
         private void Update()
         {
-            if (_currentPlacingTowerInterface != null)
+            if (_currentPlacingTower != null)
             {
                 RenderTowerPlacement();
             }
@@ -33,29 +33,29 @@ namespace Tower_Scripts
             Ray camRay = playerCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(camRay, out RaycastHit hitInfo, 2000f, towerLayer))
             {
-                _currentPlacingTowerInterface.transform.position = hitInfo.transform.position + Vector3.up * _weaponPlacementOffset;
-                _currentPlacingTowerInterface.transform.localRotation = Quaternion.Euler(_weaponPlacementRotation);
-                _currentPlacingTowerInterface.transform.parent = hitInfo.transform;
+                _currentPlacingTower.transform.position = hitInfo.transform.position + Vector3.up * _weaponPlacementOffset;
+                _currentPlacingTower.transform.localRotation = Quaternion.Euler(_weaponPlacementRotation);
+                _currentPlacingTower.transform.parent = hitInfo.transform;
             }
 
             if (Input.GetMouseButtonDown(0))
             {
                 BuyTower();
-                _currentPlacingTowerInterface = null;
+                _currentPlacingTower = null;
                 _currentSelectedConfig = null;
             }
         }
 
         private void BuyTower()
         {
-            _currentPlacingTowerInterface.ActivateTower();
+            _currentPlacingTower.ActivateTower();
             PlayerStatsController.DecreaseGold(_currentSelectedConfig.baseCost);
         }
 
         public void SetTowerToPlace(TowerConfig towerConfig)
         {
             var tower = Instantiate(towerConfig.towerStages[0], Vector3.zero, Quaternion.identity);
-            _currentPlacingTowerInterface = tower;
+            _currentPlacingTower = tower;
             _currentSelectedConfig = towerConfig;
         }
     }
