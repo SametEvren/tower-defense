@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 1 - Crossbow
   m_EditorClassIdentifier: 
-  towerType: 1
+  towerType: 0
   towerStages:
   - {fileID: 120172, guid: 02e86fbd8e914f942bb37f0715d5c842, type: 3}
   - {fileID: 170098, guid: de012b773303bb545a3f35a1012c00af, type: 3}
@@ -20,21 +20,19 @@ MonoBehaviour:
   projectile: {fileID: 0}
   sprite: {fileID: 21300000, guid: 3183c6bf63a51b344895a86b332b8396, type: 3}
   description: Strong against single enemies.
-  range: 20
+  projectileSpeed: 0
   rangeUpgrades:
   - 20
   - 20
   - 20
-  damage: 50
   damageUpgrades:
   - 50
   - 55
   - 60
-  fireRate: 0.8
   fireRateUpgrades:
   - 0.8
   - 0.7
   - 0.6
-  damageType: 1
+  areaOfEffect: []
   baseCost: 100
   upgradeCosts: 3200000064000000

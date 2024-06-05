@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 7 - Projector
   m_EditorClassIdentifier: 
-  towerType: 7
+  towerType: 0
   towerStages:
   - {fileID: 128354, guid: 8ad5b4bf015b50d4a9e71068f915ec19, type: 3}
   - {fileID: 171266, guid: dc899093f9c70fb43905c8503867e91b, type: 3}
@@ -21,21 +21,19 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 9a4260f369962ab4a837e061ea48dfb6, type: 3}
   description: Does constant damage to aerial enemies. Ineffective against ground
     enemies.
-  range: 60
+  projectileSpeed: 0
   rangeUpgrades:
   - 60
   - 80
   - 100
-  damage: 1
   damageUpgrades:
   - 1
   - 1.1
   - 1.2
-  fireRate: 0.01
   fireRateUpgrades:
   - 0.01
   - 0.01
   - 0.01
-  damageType: 1
+  areaOfEffect: []
   baseCost: 200
   upgradeCosts: 96000000c8000000

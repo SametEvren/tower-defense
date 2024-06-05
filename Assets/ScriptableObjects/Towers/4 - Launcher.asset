@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 4 - Launcher
   m_EditorClassIdentifier: 
-  towerType: 4
+  towerType: 0
   towerStages:
   - {fileID: 134130, guid: 77274f511102d2f4c9c6342ba9c940df, type: 3}
   - {fileID: 136998, guid: 6f2792b5581176045903b31a01613845, type: 3}
@@ -20,21 +20,19 @@ MonoBehaviour:
   projectile: {fileID: 0}
   sprite: {fileID: 21300000, guid: 903155d93c4363d4babb05032f6fb912, type: 3}
   description: Fires multiple shots, good range but weak.
-  range: 80
+  projectileSpeed: 0
   rangeUpgrades:
   - 80
   - 90
   - 100
-  damage: 15
   damageUpgrades:
   - 15
   - 20
   - 25
-  fireRate: 2
   fireRateUpgrades:
   - 2
   - 1.9
   - 1.8
-  damageType: 0
+  areaOfEffect: []
   baseCost: 200
   upgradeCosts: 96000000c8000000

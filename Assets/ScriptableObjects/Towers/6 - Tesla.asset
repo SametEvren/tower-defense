@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 6 - Tesla
   m_EditorClassIdentifier: 
-  towerType: 6
+  towerType: 0
   towerStages:
   - {fileID: 121782, guid: 5bbc8090c5d0723478efb25bd420c3f6, type: 3}
   - {fileID: 138962, guid: b57783e652f85f941a4c856ef48dd9b3, type: 3}
@@ -20,21 +20,19 @@ MonoBehaviour:
   projectile: {fileID: 0}
   sprite: {fileID: 21300000, guid: cc6be034a59936d4ba51053549ecd643, type: 3}
   description: Does chain lightning attacks, better than Edison.
-  range: 20
+  projectileSpeed: 0
   rangeUpgrades:
   - 20
   - 30
   - 40
-  damage: 20
   damageUpgrades:
   - 20
   - 30
   - 40
-  fireRate: 1
   fireRateUpgrades:
   - 1
   - 0.75
   - 0.5
-  damageType: 1
+  areaOfEffect: []
   baseCost: 175
   upgradeCosts: 96000000c8000000
