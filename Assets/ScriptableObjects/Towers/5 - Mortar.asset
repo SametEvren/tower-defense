@@ -12,9 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 5 - Mortar
   m_EditorClassIdentifier: 
+  towerType: 5
+  towerStages:
+  - {fileID: 187600, guid: 532ed7a288029a14ea9798d97346ab84, type: 3}
+  - {fileID: 162330, guid: 87d0679b5609b0f43bffc581389350dc, type: 3}
+  - {fileID: 184606, guid: c31517a399bd14e479b90fcd9a3e26eb, type: 3}
   projectile: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6938e1cb0213c4b40a349aca9d54d30a, type: 3}
+  description: Fires heavy shells that do area damage to land enemies. Very strong
+    but very slow.
   range: 100
+  rangeUpgrades:
+  - 100
+  - 110
+  - 120
   damage: 100
+  damageUpgrades:
+  - 100
+  - 125
+  - 150
   fireRate: 5
+  fireRateUpgrades:
+  - 5
+  - 4.7
+  - 4.5
   damageType: 0
-  cost: 250
+  baseCost: 200
+  upgradeCosts: c8000000fa000000

@@ -89,7 +89,7 @@ namespace Enemy_Scripts
             _enemyAttack.damageAmount = Damage;
         }
 
-        private void TakeDamage(float amount)
+        public void TakeDamage(float amount)
         {
             Health -= amount;
         }

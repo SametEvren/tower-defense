@@ -1809,9 +1809,10 @@ GameObject:
   - component: {fileID: 7883398492530359604}
   - component: {fileID: 7032202520831738683}
   - component: {fileID: 7804939874476085589}
-  m_Layer: 0
+  - component: {fileID: 1599254062215044305}
+  m_Layer: 8
   m_Name: Purple Terror Bringer Dragon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2026,6 +2027,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 8622167382395173062}
   healthBarFillImage: {fileID: 1076042695381541828}
+--- !u!65 &1599254062215044305
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5952855578516181783}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 7.1464705, y: 5.1320357, z: 11.230555}
+  m_Center: {x: 0, y: 2.0660183, z: 0}
 --- !u!1 &5992854173470550519
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,6 +3180,18 @@ PrefabInstance:
     - target: {fileID: 3178396656224402761, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
       propertyPath: m_Name
       value: Health Bar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178396656224402761, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5252512910422929826, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067104435430243892, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7774147331262868235, guid: 7f95d35f4d3d10041a61a83917932b26, type: 3}
       propertyPath: target

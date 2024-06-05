@@ -12,9 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75ab33c6013947448201987dc65b6c37, type: 3}
   m_Name: 3 - Hammer
   m_EditorClassIdentifier: 
+  towerType: 3
+  towerStages:
+  - {fileID: 105784, guid: 2ebabe5efa397344a8d58c35ec0cbacb, type: 3}
+  - {fileID: 171030, guid: e9257f99eff455f46af8db7ed3a1b63e, type: 3}
+  - {fileID: 162674, guid: 080e44698ba228c45a20fae602f21abf, type: 3}
   projectile: {fileID: 0}
+  sprite: {fileID: 21300000, guid: c200aa4bb22c1dd4b842bcf0ddf1b6c4, type: 3}
+  description: BONK! BONK! BONK!
   range: 10
+  rangeUpgrades:
+  - 10
+  - 10
+  - 10
   damage: 75
+  damageUpgrades:
+  - 75
+  - 100
+  - 125
   fireRate: 2.5
+  fireRateUpgrades:
+  - 2.5
+  - 2.3
+  - 2
   damageType: 0
-  cost: 150
+  baseCost: 175
+  upgradeCosts: 96000000c8000000
